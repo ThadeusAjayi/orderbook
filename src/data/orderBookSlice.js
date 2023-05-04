@@ -3,17 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const orderBookSlice = createSlice({
   name: "orderBook",
   initialState: {
-    orders: [],
+    bids: [],
+    asks: [],
   },
   reducers: {
-    setOrders: (state, action) => {
-      state.orders = {
-        orders: action.payload,
-      };
+    setBids: (state, action) => {
+      state.bids = { ...state.bids, ...action.payload };
+    },
+    setAsks: (state, action) => {
+      state.asks = { ...state.asks, ...action.payload };
     },
   },
 });
 
-export const { setOrders } = orderBookSlice.actions;
+export const { setBids, setAsks } = orderBookSlice.actions;
 
 export default orderBookSlice.reducer;

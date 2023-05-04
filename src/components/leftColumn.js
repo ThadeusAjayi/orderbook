@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import colors from "../assets/colors";
 
-export default ({ data }) => {
+export default ({ ask }) => {
   const priceBar = React.useMemo(() => {
     return { width: "70%" };
   }, []);
@@ -11,8 +11,8 @@ export default ({ data }) => {
     <View style={styles.container}>
       <View style={[styles.priceBar, priceBar]} />
       <View style={styles.row}>
-        <Text style={styles.startText}>2.999</Text>
-        <Text style={styles.endText}>48834</Text>
+        <Text style={styles.startText}>{ask.amount}</Text>
+        <Text style={styles.endText}>{ask.price}</Text>
       </View>
     </View>
   );

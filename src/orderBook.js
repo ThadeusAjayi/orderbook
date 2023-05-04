@@ -12,8 +12,17 @@ import { Button } from "react-native";
 import colors from "./assets/colors";
 import HeaderTitle from "./components/headerTitle";
 
+const Precision = {
+  P0: "PO",
+  P1: "P1",
+  P2: "P2",
+  P3: "P3",
+  P4: "P4",
+};
 export default () => {
-  const { openSocket, closeSocket } = useOrderBook();
+  const [prec, setPrec] = React.useState(Precision.P0);
+  const { openSocket, closeSocket } = useOrderBook(prec);
+
   return (
     <View style={styles.orderBook}>
       <View style={styles.header}>
@@ -27,13 +36,8 @@ export default () => {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList
-        ListHeaderComponent={<HeaderTitle />}
-        data={[1, 2]}
-        keyExtractor={(item) => JSON.stringify(item)}
-        renderItem={(order) => <OrderRow order={order} />}
-      />
-
+      <HeaderTitle />
+      <OrderRow />
       <View style={styles.buttonRow}>
         <Button
           color={colors.green}
