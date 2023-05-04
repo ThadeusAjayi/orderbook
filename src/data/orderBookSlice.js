@@ -8,10 +8,10 @@ const orderBookSlice = createSlice({
   },
   reducers: {
     setBids: (state, action) => {
-      state.bids = { ...state.bids, ...action.payload };
+      state.bids = [...state.bids, ...action.payload];
     },
     setAsks: (state, action) => {
-      state.asks = { ...state.asks, ...action.payload };
+      state.asks = [...state.asks, ...action.payload];
     },
   },
 });

@@ -6,7 +6,6 @@ export default ({ ask }) => {
   const priceBar = React.useMemo(() => {
     return { width: "70%" };
   }, []);
-
   return (
     <View style={styles.container}>
       <View style={[styles.priceBar, priceBar]} />

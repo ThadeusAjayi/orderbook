@@ -12,12 +12,12 @@ export default () => {
       <FlatList
         style={{ flex: 1 }}
         data={asks}
-        renderItem={(ask) => <LeftColumn ask={ask} />}
+        renderItem={({ item }) => <LeftColumn ask={item} />}
       />
       <FlatList
         style={{ flex: 1 }}
         data={bids}
-        renderItem={(bid) => <RightColumn bid={bid} />}
+        renderItem={({ item }) => <RightColumn bid={item} />}
       />
     </View>
   );
